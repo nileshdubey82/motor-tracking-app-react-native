@@ -1,0 +1,331 @@
+/* eslint-disable prettier/prettier */
+import React from 'react';
+import { View, Text, Dimensions, ScrollView, StyleSheet } from 'react-native';
+import { Table, Row, Rows } from 'react-native-table-component';
+
+const ReportScreen = () => {
+    const screenWidth = Dimensions.get('window').width;
+
+    const tableHead = [
+        'ID',
+        'Timing Run',
+        'Idle Time',
+        'Vibration',
+        'Power Com',
+        'Volt',
+        'RPM',
+        'Amp',
+        'Motor Temp',
+        'Gas Sensor',
+        'Weather',
+        'Soil Master',
+        'Water Consumption',
+        'Rain Sensor',
+        'Leave Tank'
+    ];
+    const tableData = [
+        [
+            '1',
+            '10 minutes',
+            '5 minutes',
+            'Low',
+            'Stable',
+            '220 volts',
+            '7652',
+            '42 amps',
+            '90 degrees',
+            '456 ppm',
+            'Foggy',
+            'Good',
+            '100 liters',
+            '6 mm',
+            '20%',
+        ],
+        [
+            '2',
+            '10 minutes',
+            '6 minutes',
+            'Low',
+            'Stable',
+            '225 volts',
+            '7252',
+            '20 amps',
+            '90 degrees',
+            '456 ppm',
+            'Foggy',
+            'Good',
+            '100 liters',
+            '6 mm',
+            '20%',
+        ],
+        [
+            '3',
+            '10 minutes',
+            '5 minutes',
+            'Low',
+            'Stable',
+            '220 volts',
+            '7652',
+            '42 amps',
+            '90 degrees',
+            '456 ppm',
+            'Foggy',
+            'Good',
+            '100 liters',
+            '6 mm',
+            '20%',
+        ],
+        [
+            '4',
+            '10 minutes',
+            '5 minutes',
+            'Low',
+            'Stable',
+            '220 volts',
+            '7652',
+            '42 amps',
+            '90 degrees',
+            '456 ppm',
+            'Foggy',
+            'Good',
+            '100 liters',
+            '6 mm',
+            '20%',
+        ],
+        [
+            '5',
+            '10 minutes',
+            '5 minutes',
+            'Low',
+            'Stable',
+            '220 volts',
+            '7652',
+            '42 amps',
+            '90 degrees',
+            '456 ppm',
+            'Foggy',
+            'Good',
+            '100 liters',
+            '6 mm',
+            '20%',
+        ],
+        [
+            '6',
+            '10 minutes',
+            '5 minutes',
+            'Low',
+            'Stable',
+            '220 volts',
+            '7652',
+            '42 amps',
+            '90 degrees',
+            '456 ppm',
+            'Foggy',
+            'Good',
+            '100 liters',
+            '6 mm',
+            '20%',
+        ],
+        [
+            '7',
+            '10 minutes',
+            '5 minutes',
+            'Low',
+            'Stable',
+            '220 volts',
+            '7652',
+            '42 amps',
+            '90 degrees',
+            '456 ppm',
+            'Foggy',
+            'Good',
+            '100 liters',
+            '6 mm',
+            '20%',
+        ],
+        [
+            '8',
+            '10 minutes',
+            '5 minutes',
+            'Low',
+            'Stable',
+            '220 volts',
+            '7652',
+            '42 amps',
+            '90 degrees',
+            '456 ppm',
+            'Foggy',
+            'Good',
+            '100 liters',
+            '6 mm',
+            '20%',
+        ],
+        [
+            '9',
+            '10 minutes',
+            '5 minutes',
+            'Low',
+            'Stable',
+            '220 volts',
+            '7652',
+            '42 amps',
+            '90 degrees',
+            '456 ppm',
+            'Foggy',
+            'Good',
+            '100 liters',
+            '6 mm',
+            '20%',
+        ],
+        [
+            '10',
+            '10 minutes',
+            '5 minutes',
+            'Low',
+            'Stable',
+            '220 volts',
+            '7652',
+            '42 amps',
+            '90 degrees',
+            '456 ppm',
+            'Foggy',
+            'Good',
+            '100 liters',
+            '6 mm',
+            '20%',
+        ],
+        [
+            '11',
+            '10 minutes',
+            '5 minutes',
+            'Low',
+            'Stable',
+            '220 volts',
+            '7652',
+            '42 amps',
+            '90 degrees',
+            '456 ppm',
+            'Foggy',
+            'Good',
+            '100 liters',
+            '6 mm',
+            '20%',
+        ],
+        [
+            '12',
+            '10 minutes',
+            '5 minutes',
+            'Low',
+            'Stable',
+            '220 volts',
+            '7652',
+            '42 amps',
+            '90 degrees',
+            '456 ppm',
+            'Foggy',
+            'Good',
+            '100 liters',
+            '6 mm',
+            '20%',
+        ],
+        [
+            '13',
+            '10 minutes',
+            '5 minutes',
+            'Low',
+            'Stable',
+            '220 volts',
+            '7652',
+            '42 amps',
+            '90 degrees',
+            '456 ppm',
+            'Foggy',
+            'Good',
+            '100 liters',
+            '6 mm',
+            '20%',
+        ],
+        [
+            '14',
+            '10 minutes',
+            '5 minutes',
+            'Low',
+            'Stable',
+            '220 volts',
+            '7652',
+            '42 amps',
+            '90 degrees',
+            '456 ppm',
+            'Foggy',
+            'Good',
+            '100 liters',
+            '6 mm',
+            '20%',
+        ],
+    ];
+    const columnWidths = tableHead.map(() => 150);
+
+    return (
+        <ScrollView style={styles.container}>
+            <Text style={styles.title}>REPORT PAGE</Text>
+            <ScrollView alwaysBounceHorizontal horizontal>
+                <View style={styles.tableContainer}>
+                    <Table borderStyle={styles.border}>
+                        <Row
+                            data={tableHead}
+                            style={styles.header}
+                            textStyle={styles.headerText}
+                            widthArr={columnWidths}
+                        />
+                        <Rows
+                            data={tableData}
+                            textStyle={styles.rowText}
+                            widthArr={columnWidths}
+                        />
+                    </Table>
+                </View>
+            </ScrollView>
+        </ScrollView>
+    );
+};
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#fff',
+        paddingVertical: 20,
+    },
+    title: {
+        backgroundColor: '#501ae1',
+        textAlign: 'center',
+        fontWeight: 'bold',
+        fontSize: 25,
+        marginBottom: 10,
+        color: "white",
+        padding: 20
+    },
+    tableContainer: {
+        padding: 16,
+    },
+    border: {
+        borderWidth: 2,
+        borderColor: '#c8e1ff',
+    },
+    header: {
+        height: 40,
+        backgroundColor: '#f1f8ff',
+    },
+    headerText: {
+        margin: 6,
+        textAlign: 'center',
+        color: 'black',
+        fontWeight: 'bold',
+    },
+    rowText: {
+        margin: 6,
+        textAlign: 'center',
+        color: 'black',
+    },
+});
+
+export default ReportScreen;

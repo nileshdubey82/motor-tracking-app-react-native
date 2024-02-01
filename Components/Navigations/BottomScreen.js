@@ -1,0 +1,68 @@
+/* eslint-disable react-native/no-inline-styles */
+/* eslint-disable react/no-unstable-nested-components */
+/* eslint-disable prettier/prettier */
+import * as React from 'react';
+import { Text, View, StyleSheet } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+import HomeScreen from '../Screens/HomeScreen';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import ProfileScreen from '../Screens/ProfileScreens'
+import Analysis from '../Screens/Analysis';
+import ReportScreen from '../Screens/ReportScreen';
+const Tab = createMaterialBottomTabNavigator();
+
+export default function Bottom() {
+    return (
+        // <NavigationContainer>
+        <Tab.Navigator
+            screenOptions={({ route }) => ({
+                tabBarIcon: ({ focused, color, size }) => {
+                    let iconName;
+
+                    if (route.name === 'Home') {
+                        iconName = focused ? 'home' : 'home-outline';
+                    } else if (route.name === 'Profile') {
+                        iconName = focused ? 'person' : 'person-outline';
+                    } else if (route.name === 'analytics') {
+                        iconName = focused ? 'analytics' : 'analytics-outline';
+                    }
+                    else if (route.name === 'ReportScreen') {
+                        iconName = focused ? 'receipt' : 'receipt-outline';
+                    }
+                    return <Ionicons name={iconName} size={20} color={color} />;
+                },
+            })}
+            initialRouteName="Home"
+            activeColor="white"
+            inactiveColor="#FFFFFF"
+            barStyle={{
+                backgroundColor: '#501ae1',
+                borderTopLeftRadius: 20,
+                borderTopRightRadius: 20,
+                overflow: 'hidden',
+            }}
+        >
+            <Tab.Screen name="Home" component={HomeScreen} />
+            <Tab.Screen name="analytics" component={Analysis} />
+            <Tab.Screen name="ReportScreen" component={ReportScreen} />
+            <Tab.Screen name="Profile" component={ProfileScreen} />
+        </Tab.Navigator>
+        // </NavigationContainer>
+    );
+}
+
+const styles = StyleSheet.create({
+    plusButton: {
+        position: 'absolute',
+        bottom: 16,
+        right: 16,
+        backgroundColor: '#501ae1', // Customize the background color of the plus button
+        width: 56,
+        height: 56,
+        borderRadius: 28,
+        justifyContent: 'center',
+        alignItems: 'center',
+        elevation: 5,
+    },
+});
